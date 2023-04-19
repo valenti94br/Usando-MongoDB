@@ -299,3 +299,46 @@ Age: 5
 
 *Seleccionar todas las publicaciones*
 
+db.posts.find()
+
+*Selecciona las publicaciones que coincidan con el username indicado*
+
+db.posts.find({ Username: 'Manolo' })
+
+*Seleccione todos los usuarios con una edad mayor a 20*
+
+db.users.find({ age: { $gt: 20 } })
+
+*Seleccione todos los usuarios con una edad inferior a 23*
+
+db.users.find({ age: { $lt: 23 } })
+
+*Seleccione todos los usuarios que tengan una edad entre 25 y 30 años*
+
+db.users.find({ age: { $gte: 25, $lte: 30 } })
+
+*Muestra los usuarios de edad menor a mayor y viceversa*
+
+db.users.find().sort({ age: 1 })
+
+*Seleccione el número total de usuarios*
+
+db.usuarios.count()
+
+*Seleccione todas las publicaciones y haz que se muestren con la siguiente estructura: Título de la publicación: "title one"*
+
+db.posts.find().forEach(function(doc) {
+  print("Título de la publicación: " + "\"" + doc.Title + "\"");
+})
+
+*Selecciona solo 2 usuarios*
+
+db.users.find().limit(2)
+
+db.posts.find({ title: /MongoDB/ }).limit(2)
+
+*BORRAR DATOS*
+
+*Elimina a todos los usuarios con una edad mayor a 30*
+
+db.users.deleteMany({ Age: { $gt: 30 } })
